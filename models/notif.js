@@ -7,7 +7,8 @@ const Schema = mongoose.Schema;
 const NotifSchema = new Schema({
   name: {
     type: String,
-    required: [true, 'Name field is required']
+    required: [true, 'Name field is required'],
+    createIndex: { "memo_id": 1 }, 
   },
   description: {
     type: String,
@@ -16,7 +17,7 @@ const NotifSchema = new Schema({
     type: Boolean,
     default: false
   }
-});
+},{timestamps: true});
 
 
 const Notif = mongoose.model('notif', NotifSchema);
