@@ -1,15 +1,16 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
+const cors = require('cors');
 
 //app setup
 const app = express();
 
 //connect to MDB
-
-mongoose.connect('mongodb://localhost/ninjago');
+mongoose.connect('mongodb://localhost/notif', { useNewUrlParser: true });
 mongoose.Promise = global.Promise;
 
+app.use(cors())
 app.use(bodyParser.json());
 
 //initialize routes
@@ -24,7 +25,7 @@ app.use(function(err, req, res, next){
     res.status(422).send({error: err.message});
 });
 
-var server = app.listen(process.env.port || 4000, function() {
+let server = app.listen(process.env.port || 4000, function() {
 	console.log('Listen app');
 });
 

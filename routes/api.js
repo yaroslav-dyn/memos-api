@@ -1,31 +1,41 @@
 const express = require('express');
 const router = express.Router();
-const Ninja = require('../models/ninja');
+const NotifDb = require('../models/notif');
 
-router.get('/ninjas', function (req, res) {
-    res.send({type: 'GET'})
+router.get('/status', function (req, res) {
+    res.send({type: 'GET',db: 'Some db'})
 });
 
-router.post('/ninjas', function (req, res, next) {
-    Ninja.create(req.body).then(function (ninja) {
-        res.send(ninja);
+router.get('/memos', function (req, res) {
+  NotifDb.find()
+      .then(result => {
+        res.send(result);
+      })
+      .catch(err => {
+        console.log(err);
+      });
+});
+
+router.post('/memo', function (req, res, next) {
+    NotifDb.create(req.body).then(function (memo) {
+        res.send(memo);
     }).catch(next);
 });
 
-router.put('/ninjas/:id', function (req, res) {
+router.put('/memo/:id', function (req, res) {
 
-    Ninja.findByIdAndUpdate({_id: req.params.id}, req.body).then(function () {
+    NotifDb.findByIdAndUpdate({_id: req.params.id}, req.body).then(function () {
 
-        Ninja.findOne({_id: req.params.id}).then(function (ninja) {
+      NotifDb.findOne({_id: req.params.id}).then(function (ninja) {
             res.send(ninja);
         });
     });
 
 });
 
-router.delete('/ninjas/:id', function (req, res) {
+router.delete('/memo/:id', function (req, res) {
 
-    Ninja.findByIdAndRemove({_id: req.params.id}).then(function (ninja) {
+    NotifDb.findByIdAndRemove({_id: req.params.id}).then(function (ninja) {
         res.send(ninja)
     });
 

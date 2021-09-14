@@ -1,16 +1,21 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<meta charset="UTF-8">
-	<title>RestAPI</title>
-	<link rel="stylesheet" href="/style.css">
-
-<!--<script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/1.7.3/socket.io.js"></script>-->
-
+  <meta charset="UTF-8">
+  <title>RestAPI</title>
+  <link rel="stylesheet" href="/style.css">
+  <!--<script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/1.7.3/socket.io.js"></script>-->
 </head>
 <body>
-	
-
-
+<div class="api-status">
+  API status:
+  <span></span>
+</div>
 </body>
+<script>
+  fetch('/api/status')
+      .then((response) => {
+        document.querySelector('.api-status > span').innerHTML = `${response.status} ${response.statusText}`;
+      })
+</script>
 </html>
