@@ -7,7 +7,14 @@ const cors = require('cors');
 const app = express();
 
 //connect to MDB
-mongoose.connect('mongodb://localhost/notif', { useNewUrlParser: true });
+mongoose.connect('mongodb://localhost/notif', {
+  useNewUrlParser: true,
+  useCreateIndex: true,
+  autoIndex: true
+})
+    .then(() => {
+      console.log('connection to DB');
+    });
 mongoose.Promise = global.Promise;
 
 app.use(cors())
@@ -19,14 +26,14 @@ app.use('/api', require('./routes/api'));
 
 //error handler
 
-app.use(function(err, req, res, next){
-    console.log(err);
+app.use(function (err, req, res, next) {
+  console.log(err);
 
-    res.status(422).send({error: err.message});
+  res.status(422).send({error: err.message});
 });
 
-let server = app.listen(process.env.port || 4000, function() {
-	console.log('Listen app');
+let server = app.listen(process.env.port || 4000, function () {
+  console.log('Listen app');
 });
 
 //Static files

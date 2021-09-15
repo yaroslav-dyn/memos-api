@@ -4,14 +4,21 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f8d233e4-7067-4ec8-b488-bebbd59afb10" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/websokets.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/websokets.iml" afterDir="false" />
+    <list default="true" id="f8d233e4-7067-4ec8-b488-bebbd59afb10" name="Default Changelist" comment="Add delete note functionality.">
+      <change afterPath="$PROJECT_DIR$/../svelte-source/src/Components/_common/confirm-modal.svelte" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/notif.js" beforeDir="false" afterPath="$PROJECT_DIR$/models/notif.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/api.js" beforeDir="false" afterPath="$PROJECT_DIR$/routes/api.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../svelte-source/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/../svelte-source/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../svelte-source/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/../svelte-source/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../svelte-source/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/../svelte-source/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../svelte-source/public/global.css" beforeDir="false" afterPath="$PROJECT_DIR$/../svelte-source/public/global.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../svelte-source/rollup.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/../svelte-source/rollup.config.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../svelte-source/src/App.svelte" beforeDir="false" afterPath="$PROJECT_DIR$/../svelte-source/src/App.svelte" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../svelte-source/src/Components/Memos/add-modal.svelte" beforeDir="false" afterPath="$PROJECT_DIR$/../svelte-source/src/Components/Memos/add-modal.svelte" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../svelte-source/src/Components/Note.svelte" beforeDir="false" afterPath="$PROJECT_DIR$/../svelte-source/src/Components/Note.svelte" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../svelte-source/src/Components/_common/base-modal.svelte" beforeDir="false" afterPath="$PROJECT_DIR$/../svelte-source/Services/toastService.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -21,10 +28,10 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="JavaScript File" />
         <option value="TypeScript File" />
         <option value="base-modal" />
         <option value="add-modal" />
+        <option value="JavaScript File" />
       </list>
     </option>
   </component>
@@ -67,7 +74,7 @@
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="nodejs_package_manager_path" value="npm" />
-    <property name="settings.editor.selected.configurable" value="preferences.general" />
+    <property name="settings.editor.selected.configurable" value="preferences.sourceCode.JavaScript" />
     <property name="ts.external.directory.path" value="$APPLICATION_HOME_DIR$/plugins/JavaScriptLanguage/jsLanguageServicesImpl/external" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
@@ -91,18 +98,35 @@
       <workItem from="1595123409049" duration="255000" />
       <workItem from="1631520593559" duration="27113000" />
       <workItem from="1631693488348" duration="647000" />
-      <workItem from="1631694250522" duration="1520000" />
+      <workItem from="1631694250522" duration="21428000" />
     </task>
+    <task id="LOCAL-00001" summary="Add delete note functionality.">
+      <created>1631696682885</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1631696682885</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
-    <option name="exactExcludedFiles">
-      <list>
-        <option value="$PROJECT_DIR$/../Svelte/svelte-lite/Services/api.js" />
-        <option value="$PROJECT_DIR$/../Svelte/svelte-lite/src/Interfaces/General.js" />
-      </list>
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
     </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Add delete note functionality." />
+    <option name="LAST_COMMIT_MESSAGE" value="Add delete note functionality." />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

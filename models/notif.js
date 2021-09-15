@@ -8,7 +8,7 @@ const NotifSchema = new Schema({
   name: {
     type: String,
     required: [true, 'Name field is required'],
-    createIndex: { "memo_id": 1 }, 
+    unique: true
   },
   description: {
     type: String,
