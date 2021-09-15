@@ -9,5 +9,6 @@
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="module" module-name="svelte-lite" />
+    <orderEntry type="module" module-name="svelte-source" />
   </component>
 </module>

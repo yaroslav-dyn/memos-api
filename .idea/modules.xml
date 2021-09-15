@@ -3,6 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/../Svelte/svelte-lite/.idea/svelte-lite.iml" filepath="$PROJECT_DIR$/../Svelte/svelte-lite/.idea/svelte-lite.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../svelte-source/.idea/svelte-source.iml" filepath="$PROJECT_DIR$/../svelte-source/.idea/svelte-source.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/websokets.iml" filepath="$PROJECT_DIR$/.idea/websokets.iml" />
     </modules>
   </component>

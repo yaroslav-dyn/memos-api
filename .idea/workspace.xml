@@ -5,25 +5,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f8d233e4-7067-4ec8-b488-bebbd59afb10" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/../Svelte/svelte-lite/Services/api.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Svelte/svelte-lite/src/Components/Memos/add-modal.svelte" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Svelte/svelte-lite/src/Components/Note.svelte" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/models/notif.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Svelte/svelte-lite/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/../Svelte/svelte-lite/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Svelte/svelte-lite/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/../Svelte/svelte-lite/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Svelte/svelte-lite/public/global.css" beforeDir="false" afterPath="$PROJECT_DIR$/../Svelte/svelte-lite/public/global.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Svelte/svelte-lite/src/App.svelte" beforeDir="false" afterPath="$PROJECT_DIR$/../Svelte/svelte-lite/src/App.svelte" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Svelte/svelte-lite/src/Components/Personal.svelte" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/websokets.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/websokets.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.readme" beforeDir="false" afterPath="$PROJECT_DIR$/.readme" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/models/ninja.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/api.js" beforeDir="false" afterPath="$PROJECT_DIR$/routes/api.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../svelte-source/public/global.css" beforeDir="false" afterPath="$PROJECT_DIR$/../svelte-source/public/global.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../svelte-source/src/App.svelte" beforeDir="false" afterPath="$PROJECT_DIR$/../svelte-source/src/App.svelte" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../svelte-source/src/Components/Memos/add-modal.svelte" beforeDir="false" afterPath="$PROJECT_DIR$/../svelte-source/src/Components/Memos/add-modal.svelte" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../svelte-source/src/Components/Note.svelte" beforeDir="false" afterPath="$PROJECT_DIR$/../svelte-source/src/Components/Note.svelte" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -46,7 +34,7 @@
         <entry key="$PROJECT_DIR$" value="master" />
       </map>
     </option>
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../Svelte/svelte-lite" />
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../svelte-source" />
   </component>
   <component name="GitSEFilterConfiguration">
     <file-type-list>
@@ -68,6 +56,8 @@
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="node.js.detected.package.eslint" value="true" />
@@ -77,7 +67,7 @@
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="nodejs_package_manager_path" value="npm" />
-    <property name="settings.editor.selected.configurable" value="settings.typescriptcompiler" />
+    <property name="settings.editor.selected.configurable" value="preferences.general" />
     <property name="ts.external.directory.path" value="$APPLICATION_HOME_DIR$/plugins/JavaScriptLanguage/jsLanguageServicesImpl/external" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
@@ -100,6 +90,8 @@
       <workItem from="1569070095327" duration="2000" />
       <workItem from="1595123409049" duration="255000" />
       <workItem from="1631520593559" duration="27113000" />
+      <workItem from="1631693488348" duration="647000" />
+      <workItem from="1631694250522" duration="1520000" />
     </task>
     <servers />
   </component>
