@@ -7,8 +7,24 @@ router.get('/status', function (req, res) {
   res.send({type: 'GET'})
 });
 
-router.get('/memos', function (req, res) {
-  NotifDb.find().sort({createdAt: -1})
+router.get('/memos', async function (req, res) {
+  const querySearchStr = req.query;
+  let resData
+  console.log(querySearchStr);
+  try {
+    if(!querySearchStr.name) {
+      resData = await NotifDb.find().sort({createdAt: -1});
+      if(resData) res.send(resData);
+    }
+  } catch (error) {
+    console.log(error);
+  }
+
+});
+
+
+router.get('/memo/:id', function (req, res) {
+  NotifDb.findOne({_id: req.params.id})
       .then(result => {
         res.send(result);
       })
@@ -17,12 +33,13 @@ router.get('/memos', function (req, res) {
       });
 });
 
+
+
+
 router.post('/memo', [
-      check('name').custom(value => {
-        return NotifDb.findOne({where: {name: value}})
-            .then(() => {
-              return Promise.reject('Name already taken')
-            })
+      check('name').custom(async value => {
+        const checkName = await NotifDb.findOne({name: value})
+        if(checkName) return Promise.reject('Name already taken')
       }),
     ],
     (req, res, next) => {
