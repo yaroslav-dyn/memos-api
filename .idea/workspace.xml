@@ -5,18 +5,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f8d233e4-7067-4ec8-b488-bebbd59afb10" name="Default Changelist" comment="Add delete note functionality.">
+      <change afterPath="$PROJECT_DIR$/../svelte-source/Services/debounce.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../svelte-source/src/Components/_common/searchBlock.svelte" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/models/notif.js" beforeDir="false" afterPath="$PROJECT_DIR$/models/notif.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/api.js" beforeDir="false" afterPath="$PROJECT_DIR$/routes/api.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../svelte-source/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/../svelte-source/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../svelte-source/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/../svelte-source/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../svelte-source/public/global.css" beforeDir="false" afterPath="$PROJECT_DIR$/../svelte-source/public/global.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../svelte-source/public/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/../svelte-source/public/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../svelte-source/Services/api.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/../svelte-source/Services/api.js.map" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../svelte-source/Services/api.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../svelte-source/Services/api.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../svelte-source/src/App.svelte" beforeDir="false" afterPath="$PROJECT_DIR$/../svelte-source/src/App.svelte" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../svelte-source/src/Components/Memos/add-modal.svelte" beforeDir="false" afterPath="$PROJECT_DIR$/../svelte-source/src/Components/Memos/add-modal.svelte" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../svelte-source/src/Components/Memos/memo-preview.svelte" beforeDir="false" afterPath="$PROJECT_DIR$/../svelte-source/src/Components/Memos/memo-preview.svelte" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../svelte-source/src/Components/Note.svelte" beforeDir="false" afterPath="$PROJECT_DIR$/../svelte-source/src/Components/Note.svelte" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -29,9 +25,10 @@
         <option value="TypeScript File" />
         <option value="base-modal" />
         <option value="add-modal" />
-        <option value="JavaScript File" />
         <option value="Header" />
         <option value="memo-preview" />
+        <option value="JavaScript File" />
+        <option value="searchBlock" />
       </list>
     </option>
   </component>
@@ -41,7 +38,7 @@
         <entry key="$PROJECT_DIR$" value="master" />
       </map>
     </option>
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../svelte-source" />
   </component>
   <component name="GitSEFilterConfiguration">
     <file-type-list>
@@ -108,7 +105,8 @@
       <workItem from="1631520593559" duration="27113000" />
       <workItem from="1631693488348" duration="647000" />
       <workItem from="1631694250522" duration="21637000" />
-      <workItem from="1631774490674" duration="22955000" />
+      <workItem from="1631774490674" duration="23856000" />
+      <workItem from="1631862705303" duration="4450000" />
     </task>
     <task id="LOCAL-00001" summary="Add delete note functionality.">
       <created>1631696682885</created>
