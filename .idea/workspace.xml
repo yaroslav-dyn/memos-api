@@ -5,14 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f8d233e4-7067-4ec8-b488-bebbd59afb10" name="Default Changelist" comment="Add delete note functionality.">
-      <change afterPath="$PROJECT_DIR$/../svelte-source/Services/debounce.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../svelte-source/src/Components/_common/searchBlock.svelte" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/api.js" beforeDir="false" afterPath="$PROJECT_DIR$/routes/api.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../svelte-source/Services/api.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/../svelte-source/Services/api.js.map" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../svelte-source/Services/api.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../svelte-source/Services/api.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../svelte-source/src/App.svelte" beforeDir="false" afterPath="$PROJECT_DIR$/../svelte-source/src/App.svelte" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -27,8 +21,8 @@
         <option value="add-modal" />
         <option value="Header" />
         <option value="memo-preview" />
-        <option value="JavaScript File" />
         <option value="searchBlock" />
+        <option value="JavaScript File" />
       </list>
     </option>
   </component>
@@ -72,7 +66,7 @@
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="settings.editor.selected.configurable" value="editor.preferences.fonts.default" />
-    <property name="ts.external.directory.path" value="$APPLICATION_HOME_DIR$/plugins/JavaScriptLanguage/jsLanguageServicesImpl/external" />
+    <property name="ts.external.directory.path" value="$PROJECT_DIR$/../svelte-source/node_modules/typescript/lib" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
@@ -106,7 +100,7 @@
       <workItem from="1631693488348" duration="647000" />
       <workItem from="1631694250522" duration="21637000" />
       <workItem from="1631774490674" duration="23856000" />
-      <workItem from="1631862705303" duration="4450000" />
+      <workItem from="1631862705303" duration="19148000" />
     </task>
     <task id="LOCAL-00001" summary="Add delete note functionality.">
       <created>1631696682885</created>
@@ -124,6 +118,8 @@
       <list>
         <option value="$PROJECT_DIR$/../svelte-source/Services/api.js.map" />
         <option value="$PROJECT_DIR$/../svelte-source/src/Interfaces/General.js.map" />
+        <option value="$PROJECT_DIR$/../svelte-source/src/main.js" />
+        <option value="$PROJECT_DIR$/../svelte-source/src/main.js.map" />
       </list>
     </option>
   </component>

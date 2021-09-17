@@ -2,29 +2,13 @@ const express = require('express');
 const router = express.Router();
 const NotifDb = require('../models/notif');
 const {check, validationResult, sanitizeBody} = require('express-validator');
+const NotesController = require('../controllers/NotesController');
 
 router.get('/status', function (req, res) {
   res.send({type: 'GET'})
 });
 
-router.get('/memos', async function (req, res) {
-  const querySearchStr = Object.keys(req.query).shift();
-  let resData
-  try {
-    if(!querySearchStr) {
-      resData = await NotifDb.find().sort({createdAt: -1});
-      if(resData) res.send(resData);
-    } else {
-      let resData = await NotifDb.find();
-      const filteredData = resData.filter(item => item.name.toLowerCase().includes(req.query[querySearchStr].toLowerCase()));
-      return res.send(filteredData);
-    }
-  } catch (error) {
-    console.log(error);
-  }
-
-});
-
+router.get('/memos', NotesController.notes_index);
 
 router.get('/memo/:id', function (req, res) {
   NotifDb.findOne({_id: req.params.id})
@@ -36,35 +20,15 @@ router.get('/memo/:id', function (req, res) {
       });
 });
 
-
-
-
 router.post('/memo', [
       check('name').custom(async value => {
         const checkName = await NotifDb.findOne({name: value})
         if(checkName) return Promise.reject('Name already taken')
       }),
-    ],
-    (req, res, next) => {
-      const errors = validationResult(req);
-      if (!errors.isEmpty()) {
-        return res.status(422).json({errors: errors.array()})
-      } else {
-        NotifDb.create(req.body).then(function (memo) {
-          res.send(memo);
-        }).catch(next);
-      }
-    }
+    ], NotesController.note_view
 );
 
-router.put('/memo/:id', function (req, res) {
-  NotifDb.findByIdAndUpdate({_id: req.params.id}, req.body).then(function () {
-    NotifDb.findOne({_id: req.params.id}).then(function (item) {
-      res.send(item);
-    });
-  });
-
-});
+router.put('/memo/:id', NotesController.update_note);
 
 router.delete('/memo/:id', function (req, res) {
   NotifDb.findByIdAndDelete({_id: req.params.id}).then(function (item) {
