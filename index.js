@@ -6,15 +6,25 @@ const cors = require('cors');
 //app setup
 const app = express();
 
+//yaroslav-webdev
+//123qwe
+
 //connect to MDB
-mongoose.connect('mongodb://localhost/notif', {
-  useNewUrlParser: true,
-  useCreateIndex: true,
-  autoIndex: true
-})
-    .then(() => {
-      console.log('connection to DB');
+async function startDb() {
+  try {
+    await mongoose.connect('mongodb+srv://yaroslav-webdev:123qwe@memo.yzt00.mongodb.net/notif', {
+      useNewUrlParser: true,
+      useCreateIndex: true,
+      autoIndex: true
     });
+    console.log('connection to DB');
+  } catch(error) {
+    console.log('Error DB', error);
+  }
+}
+
+startDb();
+
 mongoose.Promise = global.Promise;
 
 app.use(cors())
@@ -38,7 +48,3 @@ let server = app.listen(process.env.port || 4000, function () {
 
 //Static files
 app.use(express.static('public'));
-
-
-
-
