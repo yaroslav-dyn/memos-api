@@ -1,30 +1,44 @@
-var express = require('express');
-
-var socket = require('socket.io');
-
+const express = require('express');
+const bodyParser = require('body-parser');
+const mongoose = require('mongoose');
+const cors = require('cors');
 
 //app setup
-var app = express();
-var server = app.listen(4000, function(){
+const app = express();
 
-	console.log('Listen');
+//connect to MDB
+mongoose.connect('mongodb://localhost/notif', {
+  useNewUrlParser: true,
+  useCreateIndex: true,
+  autoIndex: true
+})
+    .then(() => {
+      console.log('connection to DB');
+    });
+mongoose.Promise = global.Promise;
 
+app.use(cors())
+app.use(bodyParser.json());
+
+//initialize routes
+app.use('/api', require('./routes/api'));
+
+
+//error handler
+
+app.use(function (err, req, res, next) {
+  console.log(err);
+
+  res.status(422).send({error: err.message});
+});
+
+let server = app.listen(process.env.port || 4000, function () {
+  console.log('Listen app');
 });
 
 //Static files
 app.use(express.static('public'));
 
 
-//socket setup
-var io = socket(server);
 
 
-io.on('connection', function(socket) {
-	
-	socket.on('chat', function(data) {
-
-		io.sockets.emit('chat', data);
-	});
-
-
-});
