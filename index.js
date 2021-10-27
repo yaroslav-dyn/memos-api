@@ -10,9 +10,14 @@ const app = express();
 //123qwe
 
 //connect to MDB
+//mongodb://localhost/notif
+//mongodb+srv://yaroslav-webdev:123qwe@memo.yzt00.mongodb.net/notif
+//mongodb+srv://yaroslav-webdev:123qwe@memo.yzt00.mongodb.net/myFirstDatabase?retryWrites=true&w=majority
+//mongodb+srv://yaroslav-webdev:123qwe@memo.s7mce.mongodb.net/memo
+
 async function startDb() {
   try {
-    await mongoose.connect('mongodb+srv://yaroslav-webdev:123qwe@memo.yzt00.mongodb.net/notif', {
+    await mongoose.connect('mongodb+srv://yaroslav-webdev:123qwe@memo.s7mce.mongodb.net/memo', {
       useNewUrlParser: true,
       useCreateIndex: true,
       autoIndex: true
