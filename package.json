@@ -1,6 +1,9 @@
 {
   "name": "myapi",
   "version": "1.0.0",
+  "engines": {
+    "node": "12.22.6"
+  },
   "description": "",
   "main": "index.js",
   "scripts": {

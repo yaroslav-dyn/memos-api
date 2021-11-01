@@ -14,10 +14,12 @@ const app = express();
 //mongodb+srv://yaroslav-webdev:123qwe@memo.yzt00.mongodb.net/notif
 //mongodb+srv://yaroslav-webdev:123qwe@memo.yzt00.mongodb.net/myFirstDatabase?retryWrites=true&w=majority
 //mongodb+srv://yaroslav-webdev:123qwe@memo.s7mce.mongodb.net/memo
+const localDb = "localhost/notif"
+const dataDbUrl = process.env.MONGODB_URL || localDb; //localhost/notif
 
 async function startDb() {
   try {
-    await mongoose.connect('mongodb+srv://yaroslav-webdev:123qwe@memo.s7mce.mongodb.net/memo', {
+    await mongoose.connect(dataDbUrl, {
       useNewUrlParser: true,
       useCreateIndex: true,
       autoIndex: true
@@ -49,7 +51,7 @@ app.use(function (err, req, res, next) {
 
 let API_PORT = process.env.PORT || 4000
 
-console.log(API_PORT, process.env)
+console.log(process.env.PORT)
 
 let server = app.listen( API_PORT, function () {
   console.log('Listen app');
