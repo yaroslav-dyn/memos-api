@@ -1,7 +1,7 @@
-var express = require('Express')
-const bodyParser = require('body-parser');
-const mongoose = require('mongoose');
-const cors = require('cors');
+import express, { static } from 'express';
+import { json } from 'body-parser';
+import { connect, Promise } from 'mongoose';
+import cors from 'cors';
 
 //app setup
 const app = express();
@@ -19,7 +19,7 @@ const dataDbUrl = process.env.MONGODB_URL || localDb; //localhost/notif
 
 async function startDb() {
   try {
-    await mongoose.connect(dataDbUrl, {
+    await connect(dataDbUrl, {
       useNewUrlParser: true,
       useCreateIndex: true,
       autoIndex: true
@@ -32,10 +32,10 @@ async function startDb() {
 
 startDb();
 
-mongoose.Promise = global.Promise;
+Promise = global.Promise;
 
 app.use(cors())
-app.use(bodyParser.json());
+app.use(json());
 
 //initialize routes
 app.use('/api', require('./routes/api'));
@@ -58,4 +58,4 @@ let server = app.listen( API_PORT, function () {
 });
 
 //Static files
-app.use(express.static('public'));
+app.use(static('public'));
