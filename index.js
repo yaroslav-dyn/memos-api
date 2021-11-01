@@ -17,6 +17,8 @@ const app = express();
 const localDb = "localhost/notif"
 const dataDbUrl = process.env.MONGODB_URL || localDb; //localhost/notif
 
+console.log('dataDbUrl', dataDbUrl)
+
 async function startDb() {
   try {
     await mongoose.connect(dataDbUrl, {
@@ -51,7 +53,6 @@ app.use(function (err, req, res, next) {
 
 let API_PORT = process.env.PORT || 4000
 
-console.log(process.env.PORT)
 
 let server = app.listen( API_PORT, function () {
   console.log('Listen app');
