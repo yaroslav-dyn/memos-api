@@ -47,7 +47,11 @@ app.use(function (err, req, res, next) {
   res.status(422).send({error: err.message});
 });
 
-let server = app.listen(process.env.port || 4000, function () {
+let API_PORT = process.env.PORT || 4000
+
+console.log(API_PORT, process.env)
+
+let server = app.listen( API_PORT, function () {
   console.log('Listen app');
 });
 
