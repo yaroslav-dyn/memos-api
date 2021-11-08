@@ -14,6 +14,8 @@ const app = express();
 //mongodb+srv://yaroslav-webdev:123qwe@memo.yzt00.mongodb.net/notif
 //mongodb+srv://yaroslav-webdev:123qwe@memo.yzt00.mongodb.net/myFirstDatabase?retryWrites=true&w=majority
 //mongodb+srv://yaroslav-webdev:123qwe@memo.s7mce.mongodb.net/memo
+
+
 const localDb = "localhost/notif"
 const dataDbUrl = process.env.MONGODB_URL || localDb; //localhost/notif
 

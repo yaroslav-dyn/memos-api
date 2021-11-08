@@ -9,7 +9,7 @@ const  notes_index =  async (req, res) => {
       resData = await NotifDb.find().sort({createdAt: -1});
       if (resData) res.send(resData);
     } else {
-      let resData = await NotifDb.find();
+      let resData = await NotifDb.find().sort({createdAt: -1});
       const filteredData = resData.filter(item => item.name.toLowerCase().includes(req.query[querySearchStr].toLowerCase()));
       return res.send(filteredData);
     }
