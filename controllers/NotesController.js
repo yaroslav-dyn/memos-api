@@ -1,7 +1,7 @@
 const NotifDb = require("../models/notif");
 const {validationResult} = require("express-validator");
 
-const  notes_index =  async (req, res) => {
+const notes_index =  async (req, res) => {
   const querySearchStr = Object.keys(req.query).shift();
   let resData
   try {
@@ -16,6 +16,16 @@ const  notes_index =  async (req, res) => {
   } catch (error) {
     console.log(error);
   }
+}
+
+const note_one = async (req, res) => {
+  NotifDb.findOne({_id: req.params.id})
+    .then(result => {
+      res.send(result);
+    })
+    .catch(err => {
+      console.log(err);
+    });
 }
 
 const note_view = async (req, res, next) => {
@@ -37,8 +47,16 @@ const update_note = async (req, res) => {
   });
 }
 
+const delete_note = async (req, res) => {
+  NotifDb.findByIdAndDelete({_id: req.params.id}).then(function (item) {
+    res.send(item)
+  });
+}
+
 module.exports = {
   notes_index,
+  note_one,
   note_view,
-  update_note
+  update_note,
+  delete_note
 }
