@@ -1,5 +1,6 @@
-const {validationResult} = require("express-validator");
 const IdeaDb = require("../models/ideas");
+const {validationResult} = require("express-validator");
+const NotifDb = require("../models/notif");
 
 const ideas_index =  async (req, res) => {
   const querySearchStr = Object.keys(req.query).shift();
@@ -18,6 +19,15 @@ const ideas_index =  async (req, res) => {
   }
 }
 
+const ideas_one = async (req, res) => {
+  IdeaDb.findOne({_id: req.params.id})
+    .then(result => {
+      res.send(result);
+    })
+    .catch(err => {
+      console.log(err);
+    });
+}
 
 const idea_view = async (req, res, next) => {
   const errors = validationResult(req);
@@ -30,8 +40,28 @@ const idea_view = async (req, res, next) => {
   }
 }
 
+const update_idea = async (req, res) => {
+  IdeaDb.findOneAndUpdate({_id: req.params.id}, req.body).then(function () {
+    IdeaDb.findOne({_id: req.params.id}).then(function (item) {
+      res.send(item);
+    });
+  });
+}
+
+
+const delete_idea = async (req, res) => {
+  IdeaDb.findByIdAndDelete({_id: req.params.id}).then(function (item) {
+    debugger
+    res.send(item)
+  });
+}
+
+
 
 module.exports = {
   ideas_index,
+  ideas_one,
   idea_view,
+  update_idea,
+  delete_idea
 }
