@@ -3,21 +3,24 @@ const Schema = mongoose.Schema;
 
 
 //create Schema & model
-const NotifSchema = new Schema({
+const ideasSchema = new Schema({
   name: {
+    type: String,
+  },
+  text: {
+    type: String,
+  },
+  group: {
     type: String,
     required: [true, 'Name field is required'],
   },
-  description: {
-    type: String,
-  },
-  status: {
+  isDefault: {
     type: Boolean,
     default: false
   }
 },{timestamps: true});
 
 
-const Notif = mongoose.model('notif', NotifSchema);
+const Ideas = mongoose.model('ideas', ideasSchema);
 
-module.exports = Notif;
+module.exports = Ideas;

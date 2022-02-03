@@ -1,4 +1,4 @@
-var express = require('express')
+const express = require('express')
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
 const cors = require('cors');
@@ -11,15 +11,10 @@ const app = express();
 
 //connect to MDB
 //mongodb://localhost/notif
-//mongodb+srv://yaroslav-webdev:123qwe@memo.yzt00.mongodb.net/notif
-//mongodb+srv://yaroslav-webdev:123qwe@memo.yzt00.mongodb.net/myFirstDatabase?retryWrites=true&w=majority
 //mongodb+srv://yaroslav-webdev:123qwe@memo.s7mce.mongodb.net/memo
 
-
-const localDb = "localhost/notif"
+const localDb = 'mongodb+srv://yaroslav-webdev:123qwe@memo.s7mce.mongodb.net/memo';
 const dataDbUrl = process.env.MONGODB_URL || localDb; //localhost/notif
-
-console.log('dataDbUrl', dataDbUrl)
 
 async function startDb() {
   try {
@@ -28,7 +23,7 @@ async function startDb() {
       useCreateIndex: true,
       autoIndex: true
     });
-    console.log('connection to DB');
+    console.log('connection to server DB');
   } catch(error) {
     console.log('Error DB', error);
   }
