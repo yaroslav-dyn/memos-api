@@ -20,11 +20,16 @@
     "style-loader": "^1.2.1"
   },
   "dependencies": {
+    "bcrypt": "^5.0.1",
     "body-parser": "^1.18.3",
-    "express": "^4.16.4",
     "cors": "^2.8.5",
+    "express": "^4.16.4",
     "express-validator": "^6.12.1",
+    "jsonwebtoken": "^8.5.1",
     "mongoose": "^5.3.7",
+    "passport": "^0.5.2",
+    "passport-jwt": "^4.0.0",
+    "passport-local": "^1.0.0",
     "socket.io": "^2.1.1"
   }
 }

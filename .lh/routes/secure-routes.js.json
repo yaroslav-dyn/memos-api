@@ -1,0 +1,34 @@
+{
+    "sourceFile": "routes/secure-routes.js",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 4,
+            "patches": [
+                {
+                    "date": 1648218516878,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1648218523323,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,3 +1,3 @@\n \n \n-module.exports = router;\n\\ No newline at end of file\n+module.exports = secureRouter;\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1648218658889,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,3 +1,10 @@\n \n \n-module.exports = secureRouter;\n\\ No newline at end of file\n+\n+/** Check API Status **/\n+router.get('/status', function (req, res) {\n+  res.send({ type: 'GET' })\n+});\n+\n+\n+module.exports = secureRoutes;\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1648218669986,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,7 +1,8 @@\n+const express = require('express');\n+const router = express.Router();\n \n \n-\n /** Check API Status **/\n router.get('/status', function (req, res) {\n   res.send({ type: 'GET' })\n });\n"
+                },
+                {
+                    "date": 1648218813361,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -7,5 +7,5 @@\n   res.send({ type: 'GET' })\n });\n \n \n-module.exports = secureRoutes;\n\\ No newline at end of file\n+module.exports = router;\n\\ No newline at end of file\n"
+                }
+            ],
+            "date": 1648218516878,
+            "name": "Commit-0",
+            "content": "\n\nmodule.exports = router;"
+        }
+    ]
+}
