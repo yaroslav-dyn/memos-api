@@ -3,7 +3,7 @@
     "activeCommit": 0,
     "commits": [
         {
-            "activePatchIndex": 23,
+            "activePatchIndex": 24,
             "patches": [
                 {
                     "date": 1648217391382,
@@ -100,6 +100,10 @@
                 {
                     "date": 1648306061999,
                     "content": "Index: \n===================================================================\n--- \n+++ \n@@ -39,10 +39,8 @@\n           return done(null, false, { message: 'User not found' });\n         }\n \n         const validate = await user.isValidPassword(password);\n-\n-        console.log('validate', validate);\n         \n \n         if (!validate) {\n           return done(null, false, { message: 'Wrong Password' });\n"
+                },
+                {
+                    "date": 1648306191067,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -40,9 +40,8 @@\n         }\n \n         const validate = await user.isValidPassword(password);\n         \n-\n         if (!validate) {\n           return done(null, false, { message: 'Wrong Password' });\n         }\n \n"
                 }
             ],
             "date": 1648217391382,
