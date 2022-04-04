@@ -1,12 +1,16 @@
 const NotifDb = require("../models/notif");
 const {validationResult} = require("express-validator");
+const passport = require('passport');
 
 const notes_index =  async (req, res) => {
+
+  console.log('user', req.user)
+
   const querySearchStr = Object.keys(req.query).shift();
   let resData
   try {
     if (!querySearchStr) {
-      resData = await NotifDb.find().sort({createdAt: -1});
+      resData = await NotifDb.find().where('userId').equals(req.user._id).sort({createdAt: -1});
       if (resData) res.send(resData);
     } else {
       let resData = await NotifDb.find().sort({createdAt: -1});
@@ -33,7 +37,10 @@ const note_view = async (req, res, next) => {
   if (!errors.isEmpty()) {
     return res.status(422).json({errors: errors.array()})
   } else {
-    NotifDb.create(req.body).then(function (memo) {
+    console.log(
+      'req', req.body, req.user._id
+    )
+    NotifDb.create({...req.body, userId: req.user._id}).then(function (memo) {
       res.send(memo);
     }).catch(next);
   }

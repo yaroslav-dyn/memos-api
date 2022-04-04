@@ -38,11 +38,15 @@ app.use(cors())
 app.use( bodyParser.urlencoded({ extended: false }) );
 app.use(bodyParser.json());
 
+//app.use(passport.initialize());
+//app.use(passport.session());
+
+
 const routes = require('./routes/api');
 const secureRoute = require('./routes/secure-routes');
 
 //initialize routes
-app.use('/api', routes);
+app.use('/', routes);
 
 // Plug in the JWT strategy as a middleware so only verified users can access this route.
 app.use('/user', passport.authenticate('jwt', { session: false }), secureRoute);

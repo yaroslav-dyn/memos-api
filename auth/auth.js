@@ -34,13 +34,14 @@ passport.use(
     async (email, password, done) => {
       try {
         const user = await UserModel.findOne({ email });
+        console.log('user', user)
 
         if (!user) {
           return done(null, false, { message: 'User not found' });
         }
 
         const validate = await user.isValidPassword(password);
-        
+
         if (!validate) {
           return done(null, false, { message: 'Wrong Password' });
         }
@@ -58,7 +59,7 @@ passport.use(
   new JWTstrategy(
     {
       secretOrKey: 'TOP_SECRET',
-      jwtFromRequest: ExtractJWT.fromUrlQueryParameter('secret_token')
+      jwtFromRequest: ExtractJWT.fromAuthHeaderAsBearerToken('secret_token')
     },
     async (token, done) => {
       try {

@@ -14,7 +14,8 @@ const NotifSchema = new Schema({
   status: {
     type: Boolean,
     default: false
-  }
+  },
+  userId: String
 },{timestamps: true});
 
 
