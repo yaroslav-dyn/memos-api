@@ -1,6 +1,17 @@
-psd/
-.idea/
-*.iml
-*.iws
-node_modules/
+# Logs
+logs
+*.log
+npm-debug.log*
+coverage
+/.idea
+/.lh
+/workspace.code
 
+# Dependency directories
+node_modules
+
+# Optional npm cache directory
+.npm
+
+# Prod Bundle
+build

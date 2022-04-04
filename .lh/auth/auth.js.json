@@ -3,7 +3,7 @@
     "activeCommit": 0,
     "commits": [
         {
-            "activePatchIndex": 24,
+            "activePatchIndex": 25,
             "patches": [
                 {
                     "date": 1648217391382,
@@ -104,6 +104,10 @@
                 {
                     "date": 1648306191067,
                     "content": "Index: \n===================================================================\n--- \n+++ \n@@ -40,9 +40,8 @@\n         }\n \n         const validate = await user.isValidPassword(password);\n         \n-\n         if (!validate) {\n           return done(null, false, { message: 'Wrong Password' });\n         }\n \n"
+                },
+                {
+                    "date": 1649144915978,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -33,15 +33,15 @@\n     },\n     async (email, password, done) => {\n       try {\n         const user = await UserModel.findOne({ email });\n-\n+      \n         if (!user) {\n           return done(null, false, { message: 'User not found' });\n         }\n \n         const validate = await user.isValidPassword(password);\n-        \n+\n         if (!validate) {\n           return done(null, false, { message: 'Wrong Password' });\n         }\n \n@@ -57,9 +57,9 @@\n passport.use(\n   new JWTstrategy(\n     {\n       secretOrKey: 'TOP_SECRET',\n-      jwtFromRequest: ExtractJWT.fromUrlQueryParameter('secret_token')\n+      jwtFromRequest: ExtractJWT.fromAuthHeaderAsBearerToken('secret_token')\n     },\n     async (token, done) => {\n       try {\n         return done(null, token.user);\n@@ -67,5 +67,5 @@\n         done(error);\n       }\n     }\n   )\n-);\n\\ No newline at end of file\n+);\n"
                 }
             ],
             "date": 1648217391382,

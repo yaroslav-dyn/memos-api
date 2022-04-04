@@ -2,11 +2,9 @@ const express = require('express');
 const router = express.Router();
 const passport = require('passport');
 const jwt = require('jsonwebtoken');
-const NotifDb = require('../models/notif');
 const IdeasDb = require('../models/ideas');
 const {check, validationResult, sanitizeBody} = require('express-validator');
-const NotesController = require('../controllers/NotesController');
-const ideasController = require('../controllers/IdeasController');
+
 
 require('../auth/auth');
 
@@ -42,10 +40,7 @@ router.post(
       async (err, user, info) => {
         try {
           if (err || !user) {
-            console.log('err 01', err, user);
-
             const error = new Error('An error occurred.');
-
             return next(error);
           }
 
@@ -68,23 +63,5 @@ router.post(
     )(req, res, next);
   }
 );
-
-
-/** Ideas Routes **/
-router.get('/ideas', ideasController.ideas_index);
-
-router.get('/ideas/:id', ideasController.ideas_one);
-
-router.post('/idea', [
-    check('group').custom(async value => {
-      const checkName = await IdeasDb.findOne({group: value})
-      if (checkName) return Promise.reject('Name already taken')
-    }),
-  ], ideasController.idea_view
-);
-
-router.put('/idea/:id', ideasController.update_idea);
-
-router.delete('/idea/:id', ideasController.delete_idea);
 
 module.exports = router;

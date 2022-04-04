@@ -3,7 +3,7 @@
     "activeCommit": 0,
     "commits": [
         {
-            "activePatchIndex": 7,
+            "activePatchIndex": 10,
             "patches": [
                 {
                     "date": 1648218516878,
@@ -36,6 +36,18 @@
                 {
                     "date": 1648648660777,
                     "content": "Index: \n===================================================================\n--- \n+++ \n@@ -4,8 +4,13 @@\n \n /** Check API Status **/\n router.get('/status', function (req, res) {\n   //res.send({ type: 'GET' })\n+  res.send({\n+    message: 'You made it to the secure route',\n+    user: req.user,\n+    token: req.query.secret_token\n+  })\n });\n \n \n module.exports = router;\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1649091183647,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,16 +1,29 @@\n const express = require('express');\n+const NotesController = require(\"../controllers/NotesController\");\n+const ideasController = require('../controllers/IdeasController');\n+const {check} = require(\"express-validator\");\n+const NotifDb = require(\"../models/notif\");\n const router = express.Router();\n \n \n-/** Check API Status **/\n-router.get('/status', function (req, res) {\n-  //res.send({ type: 'GET' })\n-  res.send({\n-    message: 'You made it to the secure route',\n-    user: req.user,\n-    token: req.query.secret_token\n-  })\n\\ No newline at end of file\n-});\n \n \n-module.exports = router;\n+/** Memos Routes **/\n+router.get('/memos', NotesController.notes_index);\n+\n+router.get('/memo/:id', NotesController.note_one);\n+\n+router.post('/memo', [\n+    check('name').custom(async value => {\n+      const checkName = await NotifDb.findOne({ name: value })\n+      if (checkName) return Promise.reject('Name already taken')\n+    }),\n+  ], NotesController.note_view\n+);\n+\n+router.put('/memo/:id', NotesController.update_note);\n+\n+router.delete('/memo/:id', NotesController.delete_note);\n+/** End  Memos **/\n+\n+module.exports = router;\n"
+                },
+                {
+                    "date": 1649091200457,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -25,5 +25,22 @@\n \n router.delete('/memo/:id', NotesController.delete_note);\n /** End  Memos **/\n \n+/** Ideas Routes **/\n+router.get('/ideas', ideasController.ideas_index);\n+\n+router.get('/ideas/:id', ideasController.ideas_one);\n+\n+router.post('/idea', [\n+  check('group').custom(async value => {\n+    const checkName = await IdeasDb.findOne({ group: value })\n+    if (checkName) return Promise.reject('Name already taken')\n+  }),\n+], ideasController.idea_view\n+);\n+\n+router.put('/idea/:id', ideasController.update_idea);\n+\n+router.delete('/idea/:id', ideasController.delete_idea);\n+\n module.exports = router;\n"
+                },
+                {
+                    "date": 1649091212580,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -5,10 +5,8 @@\n const NotifDb = require(\"../models/notif\");\n const router = express.Router();\n \n \n-\n-\n /** Memos Routes **/\n router.get('/memos', NotesController.notes_index);\n \n router.get('/memo/:id', NotesController.note_one);\n"
                 }
             ],
             "date": 1648218516878,

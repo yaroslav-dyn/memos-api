@@ -4,8 +4,6 @@ const passport = require('passport');
 
 const notes_index =  async (req, res) => {
 
-  console.log('user', req.user)
-
   const querySearchStr = Object.keys(req.query).shift();
   let resData
   try {

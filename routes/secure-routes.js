@@ -1,10 +1,9 @@
 const express = require('express');
 const NotesController = require("../controllers/NotesController");
+const ideasController = require('../controllers/IdeasController');
 const {check} = require("express-validator");
 const NotifDb = require("../models/notif");
 const router = express.Router();
-
-
 
 
 /** Memos Routes **/
@@ -24,5 +23,22 @@ router.put('/memo/:id', NotesController.update_note);
 
 router.delete('/memo/:id', NotesController.delete_note);
 /** End  Memos **/
+
+/** Ideas Routes **/
+router.get('/ideas', ideasController.ideas_index);
+
+router.get('/ideas/:id', ideasController.ideas_one);
+
+router.post('/idea', [
+  check('group').custom(async value => {
+    const checkName = await IdeasDb.findOne({ group: value })
+    if (checkName) return Promise.reject('Name already taken')
+  }),
+], ideasController.idea_view
+);
+
+router.put('/idea/:id', ideasController.update_idea);
+
+router.delete('/idea/:id', ideasController.delete_idea);
 
 module.exports = router;
