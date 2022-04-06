@@ -1,0 +1,58 @@
+{
+    "sourceFile": "models/auth.js",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 10,
+            "patches": [
+                {
+                    "date": 1648216534537,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1648216616161,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,4 +1,5 @@\n const mongoose = require('mongoose');\n const Schema = mongoose.Schema;\n \n \n+const\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1648216630569,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,5 +1,5 @@\n const mongoose = require('mongoose');\n const Schema = mongoose.Schema;\n \n \n-const\n\\ No newline at end of file\n+const UserShema \n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1648216638107,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,5 +1,5 @@\n const mongoose = require('mongoose');\n const Schema = mongoose.Schema;\n \n \n-const UserShema \n\\ No newline at end of file\n+const UserS hema \n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1648216647207,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,5 +1,5 @@\n const mongoose = require('mongoose');\n const Schema = mongoose.Schema;\n \n \n-const UserS hema \n\\ No newline at end of file\n+const UserSchema = new Schema({\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1648216653950,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,5 +1,7 @@\n const mongoose = require('mongoose');\n const Schema = mongoose.Schema;\n \n \n-const UserSchema = new Schema({\n\\ No newline at end of file\n+const UserSchema = new Schema({\n+\n+});\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1648216664477,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -2,6 +2,14 @@\n const Schema = mongoose.Schema;\n \n \n const UserSchema = new Schema({\n-\n+  email: {\n+    type: String,\n+    required: true,\n+    unique: true\n+  },\n+  password: {\n+    type: String,\n+    required: true\n+  }\n });\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1648216676340,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -11,5 +11,9 @@\n   password: {\n     type: String,\n     required: true\n   }\n-});\n\\ No newline at end of file\n+});\n+\n+const UserModel = mongoose.model('user', UserSchema);\n+\n+module.exports = UserModel;\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1648216717086,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,8 +1,8 @@\n const mongoose = require('mongoose');\n const Schema = mongoose.Schema;\n+const bcrypt = require('bcrypt');\n \n-\n const UserSchema = new Schema({\n   email: {\n     type: String,\n     required: true,\n"
+                },
+                {
+                    "date": 1648216724090,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -13,7 +13,18 @@\n     required: true\n   }\n });\n \n+UserSchema.pre(\n+  'save',\n+  async function (next) {\n+    const user = this;\n+    const hash = await bcrypt.hash(this.password, 10);\n+\n+    this.password = hash;\n+    next();\n+  }\n+);\n+\n const UserModel = mongoose.model('user', UserSchema);\n \n module.exports = UserModel;\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1648216805000,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -24,7 +24,14 @@\n     next();\n   }\n );\n \n+UserSchema.methods.isValidPassword = async function (password) {\n+  const user = this;\n+  const compare = await bcrypt.compare(password, user.password);\n+\n+  return compare;\n+}\n+\n const UserModel = mongoose.model('user', UserSchema);\n \n module.exports = UserModel;\n\\ No newline at end of file\n"
+                }
+            ],
+            "date": 1648216534537,
+            "name": "Commit-0",
+            "content": "const mongoose = require('mongoose');\nconst Schema = mongoose.Schema;\n\n\n"
+        }
+    ]
+}

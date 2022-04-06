@@ -1,50 +1,67 @@
 const express = require('express');
 const router = express.Router();
-const NotifDb = require('../models/notif');
+const passport = require('passport');
+const jwt = require('jsonwebtoken');
 const IdeasDb = require('../models/ideas');
 const {check, validationResult, sanitizeBody} = require('express-validator');
-const NotesController = require('../controllers/NotesController');
-const ideasController = require('../controllers/IdeasController');
 
-/** Check API Status **/
+
+require('../auth/auth');
+
+
 router.get('/status', function (req, res) {
-  res.send({type: 'GET'})
+  //res.send({ type: 'GET' })
+  res.send({
+    message: 'You made it to the secure route',
+    user: req.user,
+    token: req.query.secret_token
+  })
 });
 
 
-/** Memos Routes **/
-router.get('/memos', NotesController.notes_index);
-
-router.get('/memo/:id', NotesController.note_one);
-
-router.post('/memo', [
-      check('name').custom(async value => {
-        const checkName = await NotifDb.findOne({name: value})
-        if(checkName) return Promise.reject('Name already taken')
-      }),
-    ], NotesController.note_view
+/** Signup **/
+router.post(
+  '/signup',
+  passport.authenticate('signup', {session: false}),
+  async (req, res, next) => {
+    res.json({
+      message: 'Signup successful',
+      user: req.user
+    });
+  }
 );
 
-router.put('/memo/:id', NotesController.update_note);
+/** Login **/
+router.post(
+  '/login',
+  async (req, res, next) => {
+    passport.authenticate(
+      'login',
+      async (err, user, info) => {
+        try {
+          if (err || !user) {
+            const error = new Error('An error occurred.');
+            return next(error);
+          }
 
-router.delete('/memo/:id', NotesController.delete_note);
-/** End  Memos **/
+          req.login(
+            user,
+            {session: false},
+            async (error) => {
+              if (error) return next(error);
 
-/** Ideas Routes **/
-router.get('/ideas', ideasController.ideas_index);
+              const body = {_id: user._id, email: user.email};
+              const token = jwt.sign({user: body}, 'TOP_SECRET');
 
-router.get('/ideas/:id', ideasController.ideas_one);
-
-router.post('/idea', [
-    check('group').custom(async value => {
-      const checkName = await IdeasDb.findOne({group: value})
-      if(checkName) return Promise.reject('Name already taken')
-    }),
-  ], ideasController.idea_view
+              return res.json({success: true, token});
+            }
+          );
+        } catch (error) {
+          return next(error);
+        }
+      }
+    )(req, res, next);
+  }
 );
-
-router.put('/idea/:id', ideasController.update_idea);
-
-router.delete('/idea/:id', ideasController.delete_idea);
 
 module.exports = router;

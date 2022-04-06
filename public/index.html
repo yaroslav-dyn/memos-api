@@ -13,7 +13,7 @@
 </div>
 </body>
 <script>
-  fetch('/api/status')
+  fetch('/status')
       .then((response) => {
         document.querySelector('.api-status > span').innerHTML = `${response.status} ${response.statusText}`;
       })

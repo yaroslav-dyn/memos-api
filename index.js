@@ -2,6 +2,7 @@ const express = require('express')
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
 const cors = require('cors');
+const passport = require('passport');
 
 //app setup
 const app = express();
@@ -34,14 +35,30 @@ startDb();
 mongoose.Promise = global.Promise;
 
 app.use(cors())
+app.use( bodyParser.urlencoded({ extended: false }) );
 app.use(bodyParser.json());
 
+//app.use(passport.initialize());
+//app.use(passport.session());
+
+
+const routes = require('./routes/api');
+const secureRoute = require('./routes/secure-routes');
+
 //initialize routes
-app.use('/api', require('./routes/api'));
+app.use('/', routes);
+
+// Plug in the JWT strategy as a middleware so only verified users can access this route.
+app.use('/user', passport.authenticate('jwt', { session: false }), secureRoute);
+
+// Handle errors.
+app.use(function (err, req, res, next) {
+  res.status(err.status || 500);
+  res.json({ error: err });
+});
 
 
 //error handler
-
 app.use(function (err, req, res, next) {
   console.log(err);
 

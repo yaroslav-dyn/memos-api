@@ -1,0 +1,66 @@
+{
+    "sourceFile": ".gitignore",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 12,
+            "patches": [
+                {
+                    "date": 1648214595250,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1648214602039,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -2,7 +2,8 @@\n .idea/\n *.iml\n *.iws\n node_modules/\n+/.lh\n \n \n \n"
+                },
+                {
+                    "date": 1649233066974,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -4,6 +4,4 @@\n *.iws\n node_modules/\n /.lh\n \n-\n-\n"
+                },
+                {
+                    "date": 1649233083125,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,7 +1,17 @@\n-psd/\n-.idea/\n-*.iml\n-*.iws\n-node_modules/\n+# Logs\n+logs\n+*.log\n+npm-debug.log*\n+coverage\n+/.idea\n /.lh\n+/workspace.code\n \n+# Dependency directories\n+node_modules\n+\n+# Optional npm cache directory\n+.npm\n+\n+# Prod Bundle\n+build\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1649233209511,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,17 +1,7 @@\n-# Logs\n-logs\n-*.log\n-npm-debug.log*\n-coverage\n-/.idea\n+psd/\n+.idea/\n+*.iml\n+*.iws\n+node_modules/\n /.lh\n-/workspace.code\n \n-# Dependency directories\n-node_modules\n-\n\\ No newline at end of file\n-# Optional npm cache directory\n-.npm\n-\n-# Prod Bundle\n-build\n"
+                },
+                {
+                    "date": 1649233220866,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -2,6 +2,5 @@\n .idea/\n *.iml\n *.iws\n node_modules/\n-/.lh\n \n"
+                },
+                {
+                    "date": 1649233232670,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -3,4 +3,21 @@\n *.iml\n *.iws\n node_modules/\n \n+# Logs\n+logs\n+*.log\n+npm-debug.log*\n+coverage\n+/.idea\n+/.lh\n+/workspace.code\n+\n+# Dependency directories\n+node_modules\n+\n+# Optional npm cache directory\n+.npm\n+\n+# Prod Bundle\n+build\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1649233254482,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,5 +1,5 @@\n-psd/\n+\n .idea/\n *.iml\n *.iws\n node_modules/\n@@ -11,8 +11,9 @@\n coverage\n /.idea\n /.lh\n /workspace.code\n+/lh\n \n # Dependency directories\n node_modules\n \n"
+                },
+                {
+                    "date": 1649233283541,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,19 +1,12 @@\n-\n-.idea/\n-*.iml\n-*.iws\n-node_modules/\n-\n # Logs\n logs\n *.log\n npm-debug.log*\n coverage\n /.idea\n /.lh\n /workspace.code\n-/lh\n \n # Dependency directories\n node_modules\n \n"
+                },
+                {
+                    "date": 1649233485561,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -13,5 +13,7 @@\n # Optional npm cache directory\n .npm\n \n # Prod Bundle\n-build\n\\ No newline at end of file\n+build\n+\n+.DS_Store\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1649233639338,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -15,5 +15,31 @@\n \n # Prod Bundle\n build\n \n-.DS_Store\n\\ No newline at end of file\n+.DS_Store\n+\n+.DS_Store\n+node_modules\n+/dist\n+\n+# local env files\n+.env.local\n+.env.*.local\n+.env\n+\n+# Log files\n+npm-debug.log*\n+yarn-debug.log*\n+yarn-error.log*\n+\n+# Editor directories and files\n+.idea\n+.vscode\n+*.suo\n+*.ntvs*\n+*.njsproj\n+*.sln\n+*.sw*\n+*.js.map\n+*.vue.js\n+/.lh\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1649233651331,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -2,10 +2,8 @@\n logs\n *.log\n npm-debug.log*\n coverage\n-/.idea\n-/.lh\n /workspace.code\n \n # Dependency directories\n node_modules\n"
+                },
+                {
+                    "date": 1649233704814,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,9 +1,9 @@\n # Logs\n logs\n *.log\n npm-debug.log*\n-coverage\n+coveragegit\n /workspace.code\n \n # Dependency directories\n node_modules\n"
+                }
+            ],
+            "date": 1648214595250,
+            "name": "Commit-0",
+            "content": "psd/\n.idea/\n*.iml\n*.iws\nnode_modules/\n\n\n\n"
+        }
+    ]
+}
