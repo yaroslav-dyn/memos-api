@@ -1,6 +1,7 @@
-const express = require('express');
+const express = require("express");
 const NotesController = require("../controllers/NotesController");
-const ideasController = require('../controllers/IdeasController');
+const ideasController = require("../controllers/IdeasController");
+const ProfileController = require("../controllers/ProfileController");
 const {check} = require("express-validator");
 const NotifDb = require("../models/notif");
 const router = express.Router();
@@ -40,5 +41,10 @@ router.post('/idea', [
 router.put('/idea/:id', ideasController.update_idea);
 
 router.delete('/idea/:id', ideasController.delete_idea);
+/** End  Ideas **/
+
+router.get('/profile', ProfileController.get_profile);
+
+router.put('/profile/:id', ProfileController.update_profile);
 
 module.exports = router;
