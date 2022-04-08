@@ -50,7 +50,7 @@ const update_note = async (req, res) => {
 }
 
 const delete_note = async (req, res) => {
-  NotifDb.findOneAndUpdate({_id: req.params.id}).then(function (item) {
+  NotifDb.findOneAndDelete({_id: req.params.id}).then(function (item) {
     res.send(item)
   });
 }
