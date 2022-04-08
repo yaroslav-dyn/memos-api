@@ -41,21 +41,17 @@ const idea_view = async (req, res, next) => {
 }
 
 const update_idea = async (req, res) => {
-  IdeaDb.findOneAndUpdate({_id: req.params.id}, req.body).then(function () {
-    IdeaDb.findOne({_id: req.params.id}).then(function (item) {
-      res.send(item);
-    });
+  IdeaDb.findOneAndUpdate({_id: req.params.id}, req.body).then(function (item) {
+    res.send(item);
   });
 }
 
 
 const delete_idea = async (req, res) => {
   IdeaDb.findByIdAndDelete({_id: req.params.id}).then(function (item) {
-    debugger
     res.send(item)
   });
 }
-
 
 
 module.exports = {
