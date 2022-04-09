@@ -6,18 +6,17 @@ coveragegit
 /workspace.code
 
 # Dependency directories
-/node_modules
+node_modules/
 
 # Optional npm cache directory
 .npm
 
 # Prod Bundle
-build
+build/
 
 .DS_Store
 
-.DS_Store
-/dist
+dist/
 
 # local env files
 .env.local
@@ -30,8 +29,8 @@ yarn-debug.log*
 yarn-error.log*
 
 # Editor directories and files
-.idea
-.vscode
+.idea/
+.vscode/
 *.suo
 *.ntvs*
 *.njsproj
