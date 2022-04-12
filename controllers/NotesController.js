@@ -1,9 +1,8 @@
 const NotifDb = require("../models/notif");
 const {validationResult} = require("express-validator");
-const passport = require('passport');
+
 
 const notes_index =  async (req, res) => {
-
   const querySearchStr = Object.keys(req.query).shift();
   let resData
   try {

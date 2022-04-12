@@ -5,6 +5,7 @@ const ProfileController = require("../controllers/ProfileController");
 const {check} = require("express-validator");
 const NotifDb = require("../models/notif");
 const router = express.Router();
+const IdeaDb = require("../models/ideas");
 
 
 /** Memos Routes **/
@@ -32,7 +33,7 @@ router.get('/ideas/:id', ideasController.ideas_one);
 
 router.post('/idea', [
   check('group').custom(async value => {
-    const checkName = await IdeasDb.findOne({ group: value })
+    const checkName = await IdeaDb.findOne({ group: value })
     if (checkName) return Promise.reject('Name already taken')
   }),
 ], ideasController.idea_view

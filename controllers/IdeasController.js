@@ -1,6 +1,5 @@
 const IdeaDb = require("../models/ideas");
 const {validationResult} = require("express-validator");
-const NotifDb = require("../models/notif");
 
 const ideas_index =  async (req, res) => {
   const querySearchStr = Object.keys(req.query).shift();
