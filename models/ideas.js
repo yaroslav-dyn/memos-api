@@ -17,7 +17,8 @@ const ideasSchema = new Schema({
   isDefault: {
     type: Boolean,
     default: false
-  }
+  },
+  userId: String
 },{timestamps: true});
 
 

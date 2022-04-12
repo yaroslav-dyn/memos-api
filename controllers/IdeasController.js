@@ -6,10 +6,10 @@ const ideas_index =  async (req, res) => {
   let resData
   try {
     if (!querySearchStr) {
-      resData = await IdeaDb.find().sort({createdAt: -1});
+      resData = await IdeaDb.find().where('userId').equals(req.user._id).sort({createdAt: -1});
       if (resData) res.send(resData);
     } else {
-      let resData = await IdeaDb.find().sort({createdAt: -1});
+      let resData = await IdeaDb.find().where('userId').equals(req.user._id).sort({createdAt: -1});
       const filteredData = resData.filter(item => item.name.toLowerCase().includes(req.query[querySearchStr].toLowerCase()));
       return res.send(filteredData);
     }
@@ -33,7 +33,7 @@ const idea_view = async (req, res, next) => {
   if (!errors.isEmpty()) {
     return res.status(422).json({errors: errors.array()})
   } else {
-    IdeaDb.create(req.body).then(function (idea) {
+    IdeaDb.create({...req.body, userId: req.user._id}).then(function (idea) {
       res.send(idea);
     }).catch(next);
   }
