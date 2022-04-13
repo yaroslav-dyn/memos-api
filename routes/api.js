@@ -34,11 +34,9 @@ router.post(
       'login',
       async (err, user, info) => {
         try {
-          if (err || !user) {
-            const error = new Error('An error occurred.');
-            return next(error);
-          }
-
+          if( !user || err ) {   
+            return next({...info, status: 403});
+          }  
           req.login(
             user,
             {session: false},
@@ -46,7 +44,7 @@ router.post(
               if (error) return next(error);
               const body = {_id: user._id, email: user.email};
               const token = jwt.sign({user: body}, 'TOP_SECRET');
-              return res.json({success: true, token});
+              return res.json({success: true, token, message: info && info.message});
             }
           );
         } catch (error) {

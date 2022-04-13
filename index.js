@@ -57,14 +57,6 @@ app.use(function (err, req, res, next) {
   res.json({ error: err });
 });
 
-
-//error handler
-app.use(function (err, req, res, next) {
-  console.log(err);
-
-  res.status(422).send({error: err.message});
-});
-
 let API_PORT = process.env.PORT || 4000
 
 
