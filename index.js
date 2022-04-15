@@ -3,16 +3,14 @@ const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
 const cors = require('cors');
 const passport = require('passport');
+require('dotenv').config();
 
 //app setup
 const app = express();
 
 
-const localDb = 'mongodb+srv://yaroslav-webdev:123qwe@memo.s7mce.mongodb.net/memo';
+const localDb = process.env.LOCAL_DB_URL;
 const dataDbUrl = process.env.MONGODB_URL || localDb;
-
-console.log('localDb', process.env.MONGODB_URL );
-
 
 async function startDb() {
   try {
