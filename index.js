@@ -7,7 +7,12 @@ const passport = require('passport');
 //app setup
 const app = express();
 
-const dataDbUrl = process.env.MONGODB_URL 
+
+const localDb = 'mongodb+srv://yaroslav-webdev:123qwe@memo.s7mce.mongodb.net/memo';
+const dataDbUrl = process.env.MONGODB_URL || localDb;
+
+console.log('localDb', process.env.MONGODB_URL );
+
 
 async function startDb() {
   try {
