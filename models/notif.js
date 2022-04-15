@@ -15,6 +15,10 @@ const NotifSchema = new Schema({
     type: Boolean,
     default: false
   },
+  group: {
+    type: String,
+    default: 'unsorted'
+  },
   userId: String
 },{timestamps: true});
 
