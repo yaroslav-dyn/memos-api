@@ -7,15 +7,7 @@ const passport = require('passport');
 //app setup
 const app = express();
 
-//yaroslav-webdev
-//123qwe
-
-//connect to MDB
-//mongodb://localhost/notif
-//mongodb+srv://yaroslav-webdev:123qwe@memo.s7mce.mongodb.net/memo
-
-const localDb = 'mongodb+srv://yaroslav-webdev:123qwe@memo.s7mce.mongodb.net/memo';
-const dataDbUrl = process.env.MONGODB_URL || localDb; //localhost/notif
+const dataDbUrl = process.env.MONGODB_URL 
 
 async function startDb() {
   try {
