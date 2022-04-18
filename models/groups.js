@@ -9,10 +9,14 @@ const GroupsSchema = new Schema({
   },
   description: {
     type: String,
+  },
+  userId: {
+    type: String,
+    required: true
   }
-}, { timestamps: true });
+});
 
 
-const Groups = mongoose.model('notif', NotifSchema);
+const Groups = mongoose.model('group', GroupsSchema);
 
-module.exports = Notif;
+module.exports = Groups;
