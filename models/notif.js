@@ -1,7 +1,6 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
-
 //create Schema & model
 const NotifSchema = new Schema({
   name: {
@@ -14,6 +13,10 @@ const NotifSchema = new Schema({
   status: {
     type: Boolean,
     default: false
+  },
+  group: {
+    type: String,
+    default: 'unsorted'
   },
   userId: String
 },{timestamps: true});
