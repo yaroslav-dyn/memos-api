@@ -3,7 +3,7 @@ const { validationResult } = require("express-validator");
 
 
 const get_groups = async(req, res) => {
-  const resData = GroupsDb.find().where('userId').equals(req.user._id).sort({ name: 1 });
+  const resData = await GroupsDb.find().where('userId').equals(req.user._id).sort({ name: 1 });
   if (resData) res.send(resData);
 }
 const add_group = async (req, res, next) => {
