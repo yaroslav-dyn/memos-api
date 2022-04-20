@@ -13,6 +13,10 @@ const GroupsSchema = new Schema({
   userId: {
     type: String,
     required: true
+  },
+  readOnly: {
+    type: Boolean,
+    default: false
   }
 });
 
