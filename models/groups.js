@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
 //create Schema & model
-const NotifSchema = new Schema({
+const GroupsSchema = new Schema({
   name: {
     type: String,
     required: [true, 'Name field is required'],
@@ -10,18 +10,17 @@ const NotifSchema = new Schema({
   description: {
     type: String,
   },
-  status: {
+  userId: {
+    type: String,
+    required: true
+  },
+  readOnly: {
     type: Boolean,
     default: false
-  },
-  group: {
-    type: String,
-    default: 'unsorted'
-  },
-  userId: String
-},{timestamps: true});
+  }
+});
 
 
-const Notif = mongoose.model('notif', NotifSchema);
+const Groups = mongoose.model('group', GroupsSchema);
 
-module.exports = Notif;
+module.exports = Groups;

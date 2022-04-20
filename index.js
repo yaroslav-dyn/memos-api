@@ -17,6 +17,8 @@ async function startDb() {
     await mongoose.connect(dataDbUrl, {
       useNewUrlParser: true,
       useCreateIndex: true,
+      useUnifiedTopology: true,
+      useFindAndModify: false,
       autoIndex: true
     });
     console.log('connection to server DB');

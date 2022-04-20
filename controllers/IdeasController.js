@@ -45,7 +45,6 @@ const update_idea = async (req, res) => {
   });
 }
 
-
 const delete_idea = async (req, res) => {
   IdeaDb.findByIdAndDelete({_id: req.params.id}).then(function (item) {
     res.send(item)
