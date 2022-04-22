@@ -3,7 +3,7 @@ const { validationResult } = require("express-validator");
 
 
 const get_groups = async(req, res) => {
-  const defaultItem = {name: 'unsorted', readOnly: true, description: ''}
+  const defaultItem = {name: 'unsorted', readOnly: true, description: '', _id:'00000000'}
   const resData = await GroupsDb.find().where('userId').equals(req.user._id).sort({ name: 1 });
   if (resData) res.send([...resData, defaultItem]);
 }
