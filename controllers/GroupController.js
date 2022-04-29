@@ -19,8 +19,10 @@ const add_group = async (req, res, next) => {
 }
 
 const update_group = async (req, res) => {
-  GroupsDb.findOneAndUpdate({ _id: req.params.id }, req.body).then(function (item) {
-    res.send(item);
+  GroupsDb.findOneAndUpdate({ _id: req.params.id }, req.body).then(function () {
+    GroupsDb.findOne({ _id: req.params.id }).then(function (group) {
+      res.send(group);
+    });
   });
 }
 

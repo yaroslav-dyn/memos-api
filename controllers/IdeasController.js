@@ -41,7 +41,9 @@ const idea_view = async (req, res, next) => {
 
 const update_idea = async (req, res) => {
   IdeaDb.findOneAndUpdate({_id: req.params.id}, req.body).then(function (item) {
-    res.send(item);
+    IdeaDb.findOne({ _id: req.params.id }).then(function (item) {
+      res.send(item);
+    });
   });
 }
 

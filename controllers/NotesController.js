@@ -42,7 +42,9 @@ const note_view = async (req, res, next) => {
 
 const update_note = async (req, res) => {
   NotifDb.findOneAndUpdate({_id: req.params.id}, req.body).then(function (item) {
-    res.send(item);
+    NotifDb.findOne({ _id: req.params.id }).then(function (item) {
+      res.send(item);
+    });
   });
 }
 
