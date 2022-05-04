@@ -3,9 +3,11 @@ const NotesController = require("../controllers/NotesController");
 const ideasController = require("../controllers/IdeasController");
 const ProfileController = require("../controllers/ProfileController");
 const GroupController = require("../controllers/GroupController");
+const AccountsController = require("../controllers/AccountsController");
 const {check} = require("express-validator");
 const NotifDb = require("../models/notif");
 const GroupsDb = require("../models/groups");
+const AccountsDb = require("../models/accounts");
 const router = express.Router();
 const IdeaDb = require("../models/ideas");
 
@@ -54,5 +56,17 @@ router.post('/group', [
 );
 router.put('/group/:id', GroupController.update_group);
 router.delete('/group/:id', GroupController.delete_group);
+
+/** accounts **/
+router.get('/accounts', AccountsController.get_accounts);
+router.post('/account', [
+  check('type').custom(async value => {
+    const checkType = await AccountsDb.findOne({ type: value })
+    if (checkType) return Promise.reject('Type already taken')
+  }),
+], AccountsController.add_account
+);
+router.put('/account/:id', AccountsController.update_account);
+router.delete('/account/:id', AccountsController.delete_account);
 
 module.exports = router;
