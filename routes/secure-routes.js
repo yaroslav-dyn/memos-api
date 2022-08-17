@@ -4,10 +4,12 @@ const ideasController = require("../controllers/IdeasController");
 const ProfileController = require("../controllers/ProfileController");
 const GroupController = require("../controllers/GroupController");
 const AccountsController = require("../controllers/AccountsController");
+const EnergyControlsController = require("../controllers/EnergyControlsController");
 const {check} = require("express-validator");
 const NotifDb = require("../models/notif");
 const GroupsDb = require("../models/groups");
 const AccountsDb = require("../models/accounts");
+const EnergyControlsDb = require("../models/energyControls");
 const router = express.Router();
 const IdeaDb = require("../models/ideas");
 
@@ -45,7 +47,7 @@ router.get('/profile', ProfileController.get_profile);
 router.put('/profile/:id', ProfileController.update_profile);
 /** End  Profile **/
 
-/** Groups routes**/ 
+/** Groups routes**/
 router.get('/groups', GroupController.get_groups);
 router.post('/group', [
   check('name').custom(async value => {
@@ -68,5 +70,19 @@ router.post('/account', [
 );
 router.put('/account/:id', AccountsController.update_account);
 router.delete('/account/:id', AccountsController.delete_account);
+
+/** Energy **/
+router.get('/e-controls', EnergyControlsController.get_energy_controls);
+router.post('/e-controls', [
+      check('name').custom(async name => {
+        const checkType = await EnergyControlsDb.findOne({ type: name })
+        if (checkType) return Promise.reject('Name already taken')
+      }),
+    ], EnergyControlsController.add_energy_controls
+);
+router.put('/e-controls/:id', EnergyControlsController.update_energy_controls);
+router.delete('/e-controls/:id', EnergyControlsController.delete_energy_controls);
+
+
 
 module.exports = router;
