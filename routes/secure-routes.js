@@ -10,6 +10,7 @@ const NotifDb = require("../models/notif");
 const GroupsDb = require("../models/groups");
 const AccountsDb = require("../models/accounts");
 const EnergyControlsDb = require("../models/energyControls");
+const EnergyTableDb = require("../models/energyControlsTable");
 const router = express.Router();
 const IdeaDb = require("../models/ideas");
 
@@ -21,7 +22,7 @@ router.post('/memo', [
       const checkName = await NotifDb.findOne({ name: value })
       if (checkName) return Promise.reject('Name already taken')
     }),
-  ], NotesController.note_view
+  ], NotesController.note_create
 );
 router.put('/memo/:id', NotesController.update_note);
 router.delete('/memo/:id', NotesController.delete_note);
@@ -71,11 +72,11 @@ router.post('/account', [
 router.put('/account/:id', AccountsController.update_account);
 router.delete('/account/:id', AccountsController.delete_account);
 
-/** Energy **/
+/** Energy controls **/
 router.get('/e-controls', EnergyControlsController.get_energy_controls);
 router.post('/e-controls', [
-      check('name').custom(async name => {
-        const checkType = await EnergyControlsDb.findOne({ type: name })
+      check('name').custom(async value => {
+        const checkType = await EnergyControlsDb.findOne({ name: value })
         if (checkType) return Promise.reject('Name already taken')
       }),
     ], EnergyControlsController.add_energy_controls
@@ -83,6 +84,18 @@ router.post('/e-controls', [
 router.put('/e-controls/:id', EnergyControlsController.update_energy_controls);
 router.delete('/e-controls/:id', EnergyControlsController.delete_energy_controls);
 
+/** Energy controls table **/
 
+router.get('/e-controls-table', EnergyControlsController.get_energy_controls_table);
+router.get('/e-controls-table/:month', EnergyControlsController.get_energy_controls_table);
+router.post('/e-controls-table', [
+      check('monthNumber').custom(async number => {
+        const checkType = await EnergyTableDb.findOne({ monthNumber: number })
+        if (checkType) return Promise.reject('already has units at this date')
+      }),
+    ], EnergyControlsController.add_energy_controls_item
+);
+router.put('/e-controls-table/:id', EnergyControlsController.update_energy_controls_table);
+router.delete('/e-controls-table/:id', EnergyControlsController.delete_energy_controls_table);
 
 module.exports = router;

@@ -11,6 +11,9 @@ const EnergyControls = new Schema({
   decimalCount: {
     type: Number
   },
+  unit: {
+    type: String
+  },
   userId: {
     type: String,
     required: true

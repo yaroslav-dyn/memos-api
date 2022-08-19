@@ -29,7 +29,7 @@ const note_one = async (req, res) => {
     });
 }
 
-const note_view = async (req, res, next) => {
+const note_create = async (req, res, next) => {
   const errors = validationResult(req);
   if (!errors.isEmpty()) {
     return res.status(422).json({errors: errors.array()})
@@ -57,7 +57,7 @@ const delete_note = async (req, res) => {
 module.exports = {
   notes_index,
   note_one,
-  note_view,
+  note_create,
   update_note,
   delete_note
 }
