@@ -19,6 +19,9 @@ const EnergyControlsTable = new Schema({
   monthNumber: {
     type: Number
   },
+  yearNumber: {
+    type: Number
+  },
   userId: {
     type: String,
     required: true
